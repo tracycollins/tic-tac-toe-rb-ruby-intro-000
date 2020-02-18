@@ -25,6 +25,6 @@ def move(board, index, player)
   board[index] = player
 end
 
-def position_taken?(board, location)
-  board[location] != " " && board[location] != ""
+def position_taken?(board, position)
+  board[position] != " " && board[position] != ""
 end
