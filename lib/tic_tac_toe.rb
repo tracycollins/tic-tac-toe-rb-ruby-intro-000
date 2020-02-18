@@ -1,3 +1,5 @@
+current_player = "X"
+
 WIN_COMBINATIONS = [
   [0,1,2],
   [3,4,5],
@@ -37,9 +39,10 @@ def turn(board)
   puts "Please enter 1-9:"
   input = gets.strip
   index = input_to_index(input)
-  if valid_move?(board, index)
+  if valid_move?(board, index, current_player)
     move(board, index)
     display_board(board)
+    current_player = (current_player == "X") ? "O" : "X"
   else
     turn(board)
   end
