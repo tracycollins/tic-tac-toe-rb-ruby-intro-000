@@ -45,6 +45,13 @@ def turn_count(board)
   return count
 end
 
+def full?(board)
+  board.all? do |position|
+    position == "X" || position == "O"
+  end
+end
+
+
 def current_player(board)
   if (turn_count(board) % 2 == 0)
     return "X"
