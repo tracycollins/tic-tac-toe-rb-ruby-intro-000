@@ -66,6 +66,13 @@ def turn(board)
   end
 end
 
+def empty_board?(board)
+  board.all? do |position|
+    position != "X" && position != "O"
+  end
+end
+
+
 def won?(board)
   if empty_board?(board)
     return false
