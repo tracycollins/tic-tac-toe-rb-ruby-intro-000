@@ -65,3 +65,11 @@ def turn(board)
     turn(board)
   end
 end
+
+def won?(board)
+  if empty_board?(board)
+    return false
+  else
+    win?(board)
+  end
+end
