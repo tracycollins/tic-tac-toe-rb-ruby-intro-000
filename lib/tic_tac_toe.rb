@@ -51,6 +51,9 @@ def full?(board)
   end
 end
 
+def draw?(board)
+  full?(board) && !win?(board)
+end
 
 def current_player(board)
   if (turn_count(board) % 2 == 0)
