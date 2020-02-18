@@ -72,6 +72,16 @@ def empty_board?(board)
   end
 end
 
+def win?(board)
+  WIN_COMBINATIONS.each do |combination|
+    if combination.all? { |index| board[index] == "X"}
+      return combination
+    elsif combination.all? { |index| board[index] == "O"}
+      return combination
+    end
+  end
+  false
+end
 
 def won?(board)
   if empty_board?(board)
