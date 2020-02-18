@@ -39,6 +39,7 @@ def turn(board)
   puts "Please enter 1-9:"
   input = gets.strip
   index = input_to_index(input)
+  current_player = "X";
   if board.even? { |position| position == "X" || position == "O"}
     current_player = "X"
   else
