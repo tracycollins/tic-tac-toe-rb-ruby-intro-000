@@ -35,17 +35,30 @@ def valid_move?(board, index)
   index.between?(0,8) && !position_taken?(board, index)
 end
 
+def turn_count(board)
+  count = 0
+  board.each do |position|
+    if (position == "X" || position == "O")
+      count += 1
+    end
+  end
+  return count
+end
+
+def current_player(board)
+  if (turn_count(board) % 2 == 0)
+    return "X"
+  else
+    return "O"
+  end
+end
+
 def turn(board)
   puts "Please enter 1-9:"
   input = gets.strip
   index = input_to_index(input)
-  current_player = "X"
-  if board.even? { |position| position == "X" || position == "O"}
-    current_player = "X"
-  else
-    current_player = "O"
-  end
-  if valid_move?(board, index, current_player)
+  player = current_player
+  if valid_move?(board, index, player)
     move(board, index)
     display_board(board)
     if board.
